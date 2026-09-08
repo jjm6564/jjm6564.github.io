@@ -35,7 +35,8 @@ a:hover{text-decoration:underline; text-underline-offset:3px}
 header{padding:64px 0 40px; border-bottom:1px solid var(--line)}
 .hero{display:flex; gap:32px; align-items:flex-start; flex-wrap:wrap}
 .avatar{
-  width:132px; height:132px; border-radius:50%; flex:none; object-fit:cover;
+  width:132px; height:132px; border-radius:50%; flex:none;
+  object-fit:cover; object-position:center 25%;
   background:var(--chip); border:1px solid var(--line);
   display:grid; place-items:center; font-size:38px; font-weight:600; color:var(--ink-3);
 }
@@ -104,16 +105,20 @@ p:last-child{margin-bottom:0}
 .card .meta{margin:0; color:var(--ink-3); font-size:.87rem}
 .card .role-note{margin:8px 0 0; font-size:.9rem; color:var(--ink-2)}
 
-/* skills */
-.grid2{display:grid; grid-template-columns:1fr 1fr; gap:36px}
-.skill{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:12px}
-.skill-name{font-size:.95rem; color:var(--ink-2)}
-.dots{display:flex; gap:5px}
-.dot{width:9px; height:9px; border-radius:50%; background:var(--chip); border:1px solid var(--line)}
-.dot.on{background:var(--accent); border-color:var(--accent)}
-
-footer{padding:32px 0 56px; color:var(--ink-3); font-size:.85rem}
+/* footer */
+footer{
+  padding:32px 0 56px; color:var(--ink-3); font-size:.85rem;
+  display:flex; align-items:center; gap:12px;
+}
 footer p{margin:0}
+.mascot{
+  flex:none; width:52px; height:52px; object-fit:contain;
+  transition:transform .25s ease;
+}
+.mascot:hover{transform:translateY(-4px) rotate(-6deg)}
+@media (prefers-color-scheme:dark){
+  .mascot{filter:drop-shadow(0 0 1px rgba(255,255,255,.55))}
+}
 
 @media (max-width:640px){
   header{padding:44px 0 32px}
@@ -121,7 +126,6 @@ footer p{margin:0}
   .avatar{width:96px; height:96px; font-size:28px}
   .tl-row{grid-template-columns:1fr; gap:4px}
   .pub{grid-template-columns:1fr; gap:4px}
-  .grid2{grid-template-columns:1fr; gap:26px}
 }
 </style>
 </head>
@@ -130,7 +134,7 @@ footer p{margin:0}
 
 <header>
   <div class="hero">
-    <div class="avatar" id="avatar">JJ</div>
+    <img class="avatar" src="jmJeon.jpg" alt="Jong Min Jeon">
     <div class="hero-body">
       <h1>Jong Min Jeon</h1>
       <p class="name-kr">전종민 &middot; Seoul, Korea</p>
@@ -141,7 +145,6 @@ footer p{margin:0}
       <nav class="links">
         <a href="mailto:jjm6564@naver.com">&#9993;&nbsp; jjm6564@naver.com</a>
         <a href="https://github.com/jjm6564" target="_blank" rel="noopener">&#128279;&nbsp; GitHub</a>
-        <a href="cv.png" target="_blank" rel="noopener">&#128196;&nbsp; CV</a>
       </nav>
     </div>
   </div>
@@ -249,48 +252,12 @@ footer p{margin:0}
   </div>
 </section>
 
-<section>
-  <h2>Skills</h2>
-  <div class="grid2">
-    <div>
-      <div class="skill">
-        <span class="skill-name">Unity</span>
-        <span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span>
-      </div>
-      <div class="skill">
-        <span class="skill-name">Python</span>
-        <span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span>
-      </div>
-    </div>
-    <div>
-      <div class="skill">
-        <span class="skill-name">English</span>
-        <span class="skill-name" style="color:var(--ink-3)">TOEIC Speaking IM3</span>
-      </div>
-      <div class="skill">
-        <span class="skill-name">Korean</span>
-        <span class="skill-name" style="color:var(--ink-3)">Native</span>
-      </div>
-    </div>
-  </div>
-</section>
-
 <footer>
+  <img class="mascot" src="boksuli.png" alt="복슬이" width="52" height="52">
   <p>&copy; 2026 Jong Min Jeon &middot; Last updated September 2026</p>
 </footer>
 
 </div>
 
-<script>
-// Swap the initials placeholder for profile.jpg as soon as one exists in the repo.
-(function () {
-  var img = new Image();
-  img.onload = function () {
-    var el = document.getElementById('avatar');
-    if (el) el.outerHTML = '<img class="avatar" src="profile.jpg" alt="Jong Min Jeon">';
-  };
-  img.src = 'profile.jpg';
-})();
-</script>
 </body>
 </html>
