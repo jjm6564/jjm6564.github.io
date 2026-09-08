@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jong Min Jeon</title>
+<meta name="description" content="Jong Min Jeon — Ph.D. student in Computer Engineering at Sejong University. XR, 3D reconstruction, vision-language models.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fbfbfa; --panel:#ffffff; --ink:#16181d; --ink-2:#4a5058; --ink-3:#767d87;
+  --line:#e4e5e3; --accent:#1f5f8b; --accent-soft:#eaf1f6; --chip:#f1f2ef;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#111316; --panel:#181b1f; --ink:#e9eaec; --ink-2:#b1b6bd; --ink-3:#848b94;
+    --line:#282c31; --accent:#7fb6dc; --accent-soft:#1a2a35; --chip:#22262b;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Inter","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16px; line-height:1.65; letter-spacing:-0.005em;
+}
+a{color:var(--accent); text-decoration:none}
+a:hover{text-decoration:underline; text-underline-offset:3px}
+
+.wrap{max-width:900px; margin:0 auto; padding:0 24px}
+
+/* ---------- header ---------- */
+header{padding:64px 0 40px; border-bottom:1px solid var(--line)}
+.hero{display:flex; gap:32px; align-items:flex-start; flex-wrap:wrap}
+.avatar{
+  width:132px; height:132px; border-radius:50%; flex:none; object-fit:cover;
+  background:var(--chip); border:1px solid var(--line);
+  display:grid; place-items:center; font-size:38px; font-weight:600; color:var(--ink-3);
+}
+.hero-body{flex:1 1 340px; min-width:0}
+h1{margin:0; font-size:2.15rem; line-height:1.15; font-weight:700; letter-spacing:-0.025em}
+.name-kr{margin:6px 0 0; color:var(--ink-3); font-size:1rem; font-weight:500}
+.role{margin:14px 0 0; color:var(--ink-2); font-size:1.02rem}
+.role strong{color:var(--ink); font-weight:600}
+.links{margin:20px 0 0; display:flex; flex-wrap:wrap; gap:10px}
+.links a{
+  display:inline-flex; align-items:center; gap:7px; padding:7px 14px;
+  border:1px solid var(--line); border-radius:999px; background:var(--panel);
+  font-size:.88rem; color:var(--ink-2); font-weight:500;
+}
+.links a:hover{border-color:var(--accent); color:var(--accent); text-decoration:none}
+
+/* ---------- sections ---------- */
+section{padding:40px 0; border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+h2{
+  margin:0 0 22px; font-size:.78rem; font-weight:700; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--ink-3);
+}
+p{margin:0 0 14px}
+p:last-child{margin-bottom:0}
+
+/* interests */
+.chips{display:flex; flex-wrap:wrap; gap:9px}
+.chip{
+  padding:7px 14px; border-radius:8px; background:var(--chip);
+  font-size:.9rem; color:var(--ink-2); font-weight:500;
+}
+
+/* timeline */
+.tl{display:grid; gap:20px}
+.tl-row{display:grid; grid-template-columns:190px 1fr; gap:22px; align-items:baseline}
+.tl-when{color:var(--ink-3); font-size:.86rem; font-variant-numeric:tabular-nums; padding-top:2px}
+.tl-what{margin:0}
+.tl-what b{font-weight:600}
+.tl-what span{display:block; color:var(--ink-2); font-size:.93rem; margin-top:2px}
+
+/* publications */
+.pubs{list-style:none; margin:0; padding:0; display:grid; gap:26px}
+.pub{display:grid; grid-template-columns:56px 1fr; gap:18px}
+.pub-year{
+  color:var(--ink-3); font-size:.86rem; font-variant-numeric:tabular-nums;
+  padding-top:3px; font-weight:500;
+}
+.pub-title{margin:0; font-weight:600; line-height:1.5}
+.pub-authors{margin:5px 0 0; color:var(--ink-2); font-size:.92rem}
+.pub-authors .me{color:var(--ink); font-weight:600}
+.pub-venue{margin:4px 0 0; color:var(--ink-3); font-size:.88rem; font-style:italic}
+.pub-tags{margin:8px 0 0; display:flex; flex-wrap:wrap; gap:8px}
+.tag{
+  font-size:.75rem; font-weight:600; letter-spacing:.03em; padding:3px 9px;
+  border-radius:5px; background:var(--accent-soft); color:var(--accent);
+}
+.tag.plain{background:var(--chip); color:var(--ink-3)}
+
+/* cards */
+.cards{display:grid; gap:18px}
+.card{
+  padding:18px 20px; border:1px solid var(--line); border-radius:12px; background:var(--panel);
+}
+.card h3{margin:0 0 4px; font-size:1rem; font-weight:600; line-height:1.45}
+.card .meta{margin:0; color:var(--ink-3); font-size:.87rem}
+.card .role-note{margin:8px 0 0; font-size:.9rem; color:var(--ink-2)}
+
+/* skills */
+.grid2{display:grid; grid-template-columns:1fr 1fr; gap:36px}
+.skill{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:12px}
+.skill-name{font-size:.95rem; color:var(--ink-2)}
+.dots{display:flex; gap:5px}
+.dot{width:9px; height:9px; border-radius:50%; background:var(--chip); border:1px solid var(--line)}
+.dot.on{background:var(--accent); border-color:var(--accent)}
+
+footer{padding:32px 0 56px; color:var(--ink-3); font-size:.85rem}
+footer p{margin:0}
+
+@media (max-width:640px){
+  header{padding:44px 0 32px}
+  h1{font-size:1.8rem}
+  .avatar{width:96px; height:96px; font-size:28px}
+  .tl-row{grid-template-columns:1fr; gap:4px}
+  .pub{grid-template-columns:1fr; gap:4px}
+  .grid2{grid-template-columns:1fr; gap:26px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="hero">
+    <div class="avatar" id="avatar">JJ</div>
+    <div class="hero-body">
+      <h1>Jong Min Jeon</h1>
+      <p class="name-kr">전종민 &middot; Seoul, Korea</p>
+      <p class="role">
+        <strong>Ph.D. student</strong>, Computer Engineering, Sejong University<br>
+        Building and evaluating XR systems &mdash; AR/VR interaction, 3D reconstruction, and vision-language models for spatial understanding.
+      </p>
+      <nav class="links">
+        <a href="mailto:jjm6564@naver.com">&#9993;&nbsp; jjm6564@naver.com</a>
+        <a href="https://github.com/jjm6564" target="_blank" rel="noopener">&#128279;&nbsp; GitHub</a>
+        <a href="cv.png" target="_blank" rel="noopener">&#128196;&nbsp; CV</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<section>
+  <h2>Research Interests</h2>
+  <div class="chips">
+    <span class="chip">AR / MR / VR / XR</span>
+    <span class="chip">3D Reconstruction</span>
+    <span class="chip">Vision-Language Models</span>
+    <span class="chip">AI Agents</span>
+  </div>
+</section>
+
+<section>
+  <h2>Education</h2>
+  <div class="tl">
+    <div class="tl-row">
+      <div class="tl-when">Sep 2026 &ndash; present</div>
+      <p class="tl-what"><b>Ph.D. in Computer Engineering</b><span>Sejong University, Seoul, Korea</span></p>
+    </div>
+    <div class="tl-row">
+      <div class="tl-when">Mar 2023 &ndash; Aug 2025</div>
+      <p class="tl-what"><b>M.S. in Computer Engineering</b><span>Sejong University, Seoul, Korea</span></p>
+    </div>
+    <div class="tl-row">
+      <div class="tl-when">Mar 2017 &ndash; Feb 2023</div>
+      <p class="tl-what"><b>B.S. in Software</b><span>Sejong University, Seoul, Korea</span></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Publications</h2>
+  <ol class="pubs">
+    <li class="pub">
+      <div class="pub-year">2026</div>
+      <div>
+        <p class="pub-title">Improving Group Navigation for VR-based Entertainment Applications</p>
+        <p class="pub-authors">Jalal Safari Bazargani, <span class="me">Jong-min Jeon</span>, Abolghasem Sadeghi-Niaraki, Soo-Mi Choi<sup>*</sup></p>
+        <p class="pub-venue">Entertainment Computing</p>
+        <p class="pub-tags">
+          <span class="tag">Journal</span>
+          <a class="tag plain" href="https://doi.org/10.1016/j.entcom.2026.101086" target="_blank" rel="noopener">doi:10.1016/j.entcom.2026.101086</a>
+        </p>
+      </div>
+    </li>
+    <li class="pub">
+      <div class="pub-year">2025</div>
+      <div>
+        <p class="pub-title">혼합현실 소방훈련 시뮬레이션: HMD와 IoT 소화기를 활용한 체험학습</p>
+        <p class="pub-authors">이소교, 김광순, <span class="me">전종민</span>, 김예은, 최수미<sup>*</sup></p>
+        <p class="pub-venue">한국컴퓨터그래픽스학회 학술발표대회 (KCGS), 2025</p>
+        <p class="pub-tags"><span class="tag plain">Domestic conference</span></p>
+      </div>
+    </li>
+    <li class="pub">
+      <div class="pub-year">2023</div>
+      <div>
+        <p class="pub-title">현실-가상세계 연결을 통한 사용자 인터랙션</p>
+        <p class="pub-authors"><span class="me">전종민</span>, 이소교, 이재화, 최수미<sup>*</sup></p>
+        <p class="pub-venue">한국정보과학회 한국소프트웨어종합학술대회 (KSC), 2023</p>
+        <p class="pub-tags"><span class="tag plain">Domestic conference</span></p>
+      </div>
+    </li>
+    <li class="pub">
+      <div class="pub-year">2022</div>
+      <div>
+        <p class="pub-title">메타버스 기반 네일아트 제작 플랫폼 개발</p>
+        <p class="pub-authors"><span class="me">전종민</span>, 김태윤, 이장근, 최수미<sup>*</sup></p>
+        <p class="pub-venue">한국정보과학회 한국소프트웨어종합학술대회 (KSC), 2022</p>
+        <p class="pub-tags">
+          <span class="tag plain">Domestic conference</span>
+          <span class="tag">학부생부문 장려상</span>
+        </p>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<section>
+  <h2>Research Projects</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>실-가상 연계 메타버스를 위한 초실감 XR 기술 연구</h3>
+      <p class="meta">정보통신기획평가원 (IITP) ITRC &middot; 2022.01 &ndash; 2024.12</p>
+      <p class="role-note">2024년 연구개발 담당자</p>
+    </div>
+    <div class="card">
+      <h3>가상·증강현실을 위한 지능형 콘텐츠 제작도구 개발</h3>
+      <p class="meta">한국산업기술진흥원 (KIAT) 한&ndash;스위스 산업기술국제협력 &middot; 2021.10 &ndash; 2023.11</p>
+      <p class="role-note">참여 연구원</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Software Registration</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>메타버스 기반 네일아트 제작 플랫폼</h3>
+      <p class="meta">SW 저작권 등록 &middot; C-2022-052588</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Skills</h2>
+  <div class="grid2">
+    <div>
+      <div class="skill">
+        <span class="skill-name">Unity</span>
+        <span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span>
+      </div>
+      <div class="skill">
+        <span class="skill-name">Python</span>
+        <span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span>
+      </div>
+    </div>
+    <div>
+      <div class="skill">
+        <span class="skill-name">English</span>
+        <span class="skill-name" style="color:var(--ink-3)">TOEIC Speaking IM3</span>
+      </div>
+      <div class="skill">
+        <span class="skill-name">Korean</span>
+        <span class="skill-name" style="color:var(--ink-3)">Native</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Jong Min Jeon &middot; Last updated September 2026</p>
+</footer>
+
+</div>
+
+<script>
+// Swap the initials placeholder for profile.jpg as soon as one exists in the repo.
+(function () {
+  var img = new Image();
+  img.onload = function () {
+    var el = document.getElementById('avatar');
+    if (el) el.outerHTML = '<img class="avatar" src="profile.jpg" alt="Jong Min Jeon">';
+  };
+  img.src = 'profile.jpg';
+})();
+</script>
+</body>
+</html>
